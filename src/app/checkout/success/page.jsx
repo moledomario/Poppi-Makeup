@@ -1,4 +1,4 @@
-import CheckoutSuccessPage from "../../../layout/checkoutLayout/Succes";
+import CheckoutSuccessPage from "../../layout/checkoutLayout/Succes";
 
 export default function Page() {
     return (

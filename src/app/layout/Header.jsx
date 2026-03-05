@@ -94,14 +94,9 @@ export default function Header() {
                                 >
                                     {cartCount}
                                 </span>
-                            ) : (
-                                <span
-                                    className="absolute -top-2 -right-2 bg-[#f790b1] text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
-                                    style={{ fontFamily: '"Fredoka One", sans-serif' }}
-                                >
-                                    0
-                                </span>
-                            )}
+                            ) : null
+
+                            }
                         </Link>
                     </nav>
                 </div>
