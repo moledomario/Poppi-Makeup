@@ -1,5 +1,7 @@
 'use client';
 
+import { Suspense } from 'react';
+
 import { Refine } from '@refinedev/core';
 import { RefineKbar, RefineKbarProvider } from '@refinedev/kbar';
 import routerProvider from '@refinedev/nextjs-router';
@@ -30,6 +32,14 @@ export default function RefineProvider({ children }) {
                 >
 
                     <AppContextWrapper>
+                        <Suspense fallback={
+                            <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+                                <div className="text-center">
+                                    <div className="w-16 h-16 border-4 border-[#f790b1] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                                    <p className="text-gray-600">Cargando administrador...</p>
+                                </div>
+                            </div>
+                        }>
 
                         <Refine
                             routerProvider={routerProvider}
@@ -79,8 +89,9 @@ export default function RefineProvider({ children }) {
 
                             <RefineKbar />
                         </Refine>
+                    </Suspense>
 
-                    </AppContextWrapper>
+                </AppContextWrapper>
 
                 </ConfigProvider>
             </AntdRegistry>

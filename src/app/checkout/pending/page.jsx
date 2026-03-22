@@ -1,7 +1,10 @@
+import { Suspense } from 'react';
 import CheckoutPendingPage from "../../layout/checkoutLayout/pending";
 
 export default function Page() {
     return (
-        <CheckoutPendingPage />
+        <Suspense fallback={<div>Cargando...</div>}>
+            <CheckoutPendingPage />
+        </Suspense>
     );
 }
