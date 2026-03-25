@@ -14,10 +14,12 @@ import {
     App,
     Popconfirm
 } from 'antd';
-import { PlusOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import { PlusOutlined, EditOutlined, DeleteOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { supabase } from '../../supabase/supabaseClient';
+import { useRouter } from 'next/navigation';
 
 export default function CategoriesList() {
+    const router = useRouter();
     const { message } = App.useApp();
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -183,6 +185,7 @@ export default function CategoriesList() {
             <Card>
                 <div className="flex items-center justify-between mb-6">
                     <div>
+                        <ArrowLeftOutlined className="text-2xl mb-4 cursor-pointer" onClick={() => router.back()} />
                         <h1 className="text-2xl font-bold">Categorías</h1>
                         <p className="text-gray-600 mt-1">
                             Gestiona las categorías y subcategorías de productos

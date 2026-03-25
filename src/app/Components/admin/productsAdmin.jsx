@@ -2,14 +2,13 @@
 
 import { useDelete } from '@refinedev/core';
 import { List, useTable, EditButton, DeleteButton, ShowButton } from '@refinedev/antd';
-import { Table, Space, Tag, Image as AntImage, Switch, Input, Button } from 'antd';
+import { Table, Space, Tag, Image as AntImage, Switch, Input, Form, Button } from 'antd';
 import { PlusOutlined, SearchOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { supabase } from '../../supabase/supabaseClient';
 import { useRouter } from 'next/navigation';
 
 export default function ProductsList() {
     const router = useRouter();
-
     const { tableProps, searchFormProps } = useTable({
         resource: 'products',
         syncWithLocation: true,
@@ -153,7 +152,15 @@ export default function ProductsList() {
 
     return (
         <div className="p-6">
-
+            <Button
+                type="primary"
+                icon={<ArrowLeftOutlined />}
+                onClick={() => router.back()}
+                style={{ marginBottom: 16 }}
+            >
+                Volver
+            </Button>
+            <Form {...searchFormProps} style={{ display: 'none' }} />
             <List
                 title="Productos"
                 createButtonProps={{
@@ -171,8 +178,6 @@ export default function ProductsList() {
                     scroll={{ x: 1000 }}
                 />
             </List>
-
-
         </div>
     );
 }

@@ -45,7 +45,7 @@ export default function HeroSection() {
 
                     }}
                     by="character"
-                    className="text-lg md:text-[24px] tracking-wider mt-2">
+                    className="text-lg md:text-[24px] tracking-wider mt-2" style={{ fontFamily: 'vidaloka, serif' }}>
                     Bienvenidos a
                 </TextAnimate>
                 <TextAnimate
@@ -69,6 +69,7 @@ export default function HeroSection() {
                 width={250}
                 height={200}
                 className="absolute top-10 right-0 lg:right-[10%] opacity-40 md:opacity-50 hover:opacity-100 transition duration-500 w-[200px] lg:w-[250px]"
+                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
             />
             {/* Imagen 5 - Arriba Izquierda (Cerca del medio en móvil) */}
             <Image
@@ -77,6 +78,7 @@ export default function HeroSection() {
                 width={250}
                 height={200}
                 className="absolute top-15 left-0 lg:left-[10%] opacity-40 md:opacity-50 hover:opacity-100 transition duration-500 w-[200px] lg:w-[250px]"
+                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
             />
             {/* Imagen 6 - Abajo Izquierda */}
             <Image
@@ -85,6 +87,7 @@ export default function HeroSection() {
                 width={250}
                 height={200}
                 className="absolute bottom-10 left-0 lg:left-0 opacity-40 md:opacity-50 hover:opacity-100 transition duration-500 w-[200px] lg:w-[250px]"
+                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
             />
             {/* Imagen 4 - Abajo Derecha */}
             <Image
@@ -93,6 +96,7 @@ export default function HeroSection() {
                 width={250}
                 height={200}
                 className="absolute bottom-10 right-0 lg:right-0 opacity-40 md:opacity-50 hover:opacity-100 transition duration-500 w-[200px] lg:w-[250px]"
+                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
             />
         </section>
     );

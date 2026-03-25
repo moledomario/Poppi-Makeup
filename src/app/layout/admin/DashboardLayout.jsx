@@ -131,11 +131,13 @@ export default function DashboardLayout() {
             title: 'Categoría',
             dataIndex: ['subcategory', 'name'],
             key: 'category',
+            responsive: ['md'],
         },
         {
             title: 'Precio',
             dataIndex: 'price',
             key: 'price',
+            responsive: ['sm'],
             render: (price) => `$${parseFloat(price).toFixed(2)}`,
         },
         {
@@ -329,6 +331,7 @@ export default function DashboardLayout() {
                             loading={loading}
                             pagination={false}
                             size="small"
+                            scroll={{ x: true }}
                         />
                     </Card>
                 </Col>
@@ -352,6 +355,7 @@ export default function DashboardLayout() {
                                 loading={loading}
                                 pagination={false}
                                 size="small"
+                                scroll={{ x: true }}
                             />
                         ) : (
                             <div className="text-center py-8 text-gray-400">

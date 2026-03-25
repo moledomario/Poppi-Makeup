@@ -163,75 +163,7 @@ export default function AdminLayout({ children }) {
                 </div>
             </aside>
 
-            {/* Sidebar Mobile */}
-            {sidebarOpen && (
-                <div className="lg:hidden fixed inset-0 z-50 bg-black bg-opacity-50" onClick={() => setSidebarOpen(false)}>
-                    <aside className="fixed inset-y-0 left-0 w-64 bg-white" onClick={(e) => e.stopPropagation()}>
-                        <div className="flex flex-col h-full pt-5 pb-4">
 
-                            {/* Header mobile */}
-                            <div className="flex items-center justify-between px-4 mb-8">
-                                <Image
-                                    src="/poppit.png"
-                                    alt="Poppi Makecup"
-                                    width={150}
-                                    height={60}
-                                    className="object-contain"
-                                />
-                                <button
-                                    onClick={() => setSidebarOpen(false)}
-                                    className="p-2 rounded-lg hover:bg-gray-100"
-                                >
-                                    <X size={24} />
-                                </button>
-                            </div>
-
-                            {/* Navegación mobile */}
-                            <nav className="flex-1 px-3 space-y-1">
-                                {menuItems.map((item) => {
-                                    const isActive = pathname.startsWith(item.href);
-                                    const Icon = item.icon;
-
-                                    return (
-                                        <Link
-                                            key={item.href}
-                                            href={item.href}
-                                            onClick={() => setSidebarOpen(false)}
-                                            className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors ${isActive
-                                                ? 'bg-pink-50 text-[#f790b1]'
-                                                : 'text-gray-700 hover:bg-gray-50 hover:text-[#f790b1]'
-                                                }`}
-                                        >
-                                            <Icon className="mr-3 flex-shrink-0" size={20} />
-                                            {item.label}
-                                        </Link>
-                                    );
-                                })}
-                            </nav>
-
-                            {/* Footer mobile */}
-                            <div className="px-3 space-y-2">
-                                <Link
-                                    href="/"
-                                    target="_blank"
-                                    className="flex items-center px-4 py-3 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-50 hover:text-[#f790b1] transition-colors"
-                                >
-                                    <Store className="mr-3 flex-shrink-0" size={20} />
-                                    Ver Tienda
-                                </Link>
-
-                                <button
-                                    onClick={handleLogout}
-                                    className="w-full flex items-center px-4 py-3 text-sm font-medium text-red-600 rounded-lg hover:bg-red-50 transition-colors"
-                                >
-                                    <LogOut className="mr-3 flex-shrink-0" size={20} />
-                                    Cerrar sesión
-                                </button>
-                            </div>
-                        </div>
-                    </aside>
-                </div>
-            )}
 
             {/* Contenido principal */}
             <div className="lg:pl-64">
@@ -239,19 +171,66 @@ export default function AdminLayout({ children }) {
                 <div className="lg:hidden sticky top-0 z-40 bg-white border-b border-gray-200 px-4 py-4">
                     <div className="flex items-center justify-between">
                         <Image
-                            src="/logo.png"
+                            src="/poppit.png"
                             alt="Poppimakecup"
                             width={120}
                             height={48}
                             className="h-8 w-auto"
                         />
                         <button
-                            onClick={() => setSidebarOpen(true)}
+                            onClick={() => setSidebarOpen(!sidebarOpen)}
                             className="p-2 rounded-lg hover:bg-gray-100"
                         >
-                            <Menu size={24} />
+                            {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
                     </div>
+
+                    {/* Menú móvil desplegable (Estilo Header.jsx) */}
+                    {sidebarOpen && (
+                        <div className="mt-4 pb-4 border-t border-gray-100 animate-in fade-in slide-in-from-top-4 duration-700">
+                            <nav className="flex flex-col gap-4 mt-4">
+                                {menuItems.map((item) => {
+                                    const isActive = pathname.startsWith(item.href);
+
+                                    return (
+                                        <Link
+                                            key={item.href}
+                                            href={item.href}
+                                            onClick={() => setSidebarOpen(false)}
+                                            className={`text-gray-700 hover:text-[#f790b1] transition-colors font-medium text-lg px-2 flex items-center justify-center py-2 rounded-lg ${isActive ? 'bg-pink-50 text-[#f790b1]' : 'bg-gray-50'
+                                                }`}
+                                            style={{ fontFamily: '"Fredoka One", sans-serif' }}
+                                        >
+                                            {item.label}
+                                        </Link>
+                                    );
+                                })}
+
+                                <div className="border-t border-gray-100 pt-4 space-y-4">
+                                    <Link
+                                        href="/"
+                                        target="_blank"
+                                        className="text-gray-700 hover:text-[#f790b1] transition-colors font-medium text-lg px-2 flex items-center justify-center py-2 bg-gray-50 rounded-lg"
+                                        style={{ fontFamily: '"Fredoka One", sans-serif' }}
+                                        onClick={() => setSidebarOpen(false)}
+                                    >
+                                        Ver Tienda
+                                    </Link>
+
+                                    <button
+                                        onClick={() => {
+                                            handleLogout();
+                                            setSidebarOpen(false);
+                                        }}
+                                        className="w-full text-red-600 hover:bg-red-50 transition-colors font-medium text-lg px-2 flex items-center justify-center py-2 bg-gray-50 rounded-lg"
+                                        style={{ fontFamily: '"Fredoka One", sans-serif' }}
+                                    >
+                                        Cerrar sesión
+                                    </button>
+                                </div>
+                            </nav>
+                        </div>
+                    )}
                 </div>
 
                 {/* Contenido */}

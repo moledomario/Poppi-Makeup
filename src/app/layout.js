@@ -1,8 +1,14 @@
 import '@ant-design/v5-patch-for-react-19';
 import "./globals.css";
-import { Cookie } from 'next/font/google'
-import { Icon } from 'lucide-react';
+import { Cookie, Anton, Work_Sans, Vidaloka } from 'next/font/google'
 
+
+const vidaloka = Vidaloka({
+  variable: '--font-vidaloka',
+  weight: '400',
+  fontFamily: 'Vidaloka, serif',
+  fontStyle: 'normal',
+})
 
 const cookie = Cookie({
   variable: '--font-cookie',
@@ -10,10 +16,22 @@ const cookie = Cookie({
   fontFamily: 'Cookie, cursive',
   fontStyle: 'normal',
 })
+const anton = Anton({
+  variable: '--font-anton',
+  weight: '400',
+  fontFamily: 'Anton, sans-serif',
+  fontStyle: 'normal',
+})
 
+const work_sans = Work_Sans({
+  variable: '--font-work_sans',
+  weight: '400',
+  fontFamily: 'Work Sans, sans-serif',
+  fontStyle: 'normal',
+})
 export const metadata = {
-  title: "Poppi Makecup",
-  description: "Poppi Makecup website",
+  title: "Poppi Makeup",
+  description: "Poppi Makeup website",
   icons: '/hero-img.jpeg',
 };
 

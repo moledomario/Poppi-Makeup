@@ -75,13 +75,15 @@ export default function ProductsList() {
                         <p className="text-gray-600">Lo más vendido de esta semana</p>
                     </div>
 
+
                     <Link
                         href="/productsSection"
-                        className="text-[#f790b1] hover:text-[#f570a0] transition-colors hidden md:block"
+                        className="px-8 py-2.5 rounded-full mt-8 border-2 border-[#f790b1] text-[#000000] hover:bg-[#f790b1] hover:text-white transition-colors hidden md:block cursor-pointer "
                         style={{ fontFamily: '"Fredoka One", sans-serif' }}
                     >
                         Ver todo
                     </Link>
+
                 </div>
 
                 {/* Grid de productos */}
